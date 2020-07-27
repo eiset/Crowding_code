@@ -178,7 +178,7 @@ for(h in 1:8) {
 }
 
 
-rm(list = ls(pattern = "temp"))
+#rm(list = ls(pattern = "temp")) # Do this, but beware 
 
 
 
