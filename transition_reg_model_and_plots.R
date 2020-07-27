@@ -116,14 +116,13 @@ for(h in 1:8) {
                                                "01:00", "01:30", "02:00", "02:30",
                                                "03:00", "03:30", "04:00", "04:30",
                                                "05:00", "05:30", "06:00", "06:30"))
-    # OBS d 20.03.18 er der rettet fejl: manglende "03:00" kode ikke testet efterflg!
     
     dta4 <- temp1 %>%
       gather(vari, nbr, departures, expt.dep, arrivals, queue)
     fnal <- rbind(fnal, dta4)
   }
   
-  # df med total antal ankommet (skal skrives på hver enkelt graf)
+  # df with total number of arrivals
   temp2 <- fnal %>%
     filter(vari == "arrivals") %>%
     group_by(dte.sft) %>%
@@ -135,7 +134,6 @@ for(h in 1:8) {
       transmute(dy.sft = dy.sft) %>%
       unique()
   )
-  ### giver error da transmute sletter alle andre variabler. dte.sft tilføjes automatisk
   
   #temp4 <- fnal %>%
   #  filter(vari == "arrivals") %>%
